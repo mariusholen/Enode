@@ -1,0 +1,22 @@
+.frontPage {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: var(--background);
+}
+
+.container {
+    border: 0.3rem solid var(--secondary);
+    padding: calc(var(--grid) * 6) calc(var(--grid) * 2) calc(var(--grid) * 10)
+        calc(var(--grid) * 2);
+    border-radius: 0.4rem;
+}
+
+.title {
+    color: var(--secondary);
+    margin-bottom: calc(var(--grid) * 5);
+    font-size: xxx-large;
+}

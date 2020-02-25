@@ -1,0 +1,31 @@
+.organizationList {
+    text-align: center;
+    color: var(--backround);
+}
+.orgItem {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: x-large;
+    margin-right: calc(var(--grid) * 10);
+    margin-left: calc(var(--grid) * 10);
+    padding: 0.3em;
+    background-color: white;
+    color: var(--backround);
+    border-color: var(--secondary);
+}
+.button {
+    border-radius: 0.2em;
+    padding: calc(var(--grid) * 1) calc(var(--grid) * 3);
+    font-size: large;
+    margin-top: calc(var(--grid) * 2);
+    background-color: var(--secondary);
+    color: var(--background);
+    font-weight: bold;
+    border: none;
+}
+
+.labeling {
+    color: var(--tertiary);
+    margin-bottom: 10px;
+    display: inline-block;
+}

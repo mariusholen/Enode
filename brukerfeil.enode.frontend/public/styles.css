@@ -1,0 +1,26 @@
+html {
+    font-size: 62.5%;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: var(--tertiary);
+    font-size: 12px;
+    font-family: GT America Medium, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: var(--background);
+}
+
+:root {
+    --grid: 8px;
+    --background: #083a55;
+    --text-color: var(--secondary);
+    --secondary: #f1fffa;
+    --tertiary: #f1fffa;
+}
+
+#root {
+    height: inherit;
+}

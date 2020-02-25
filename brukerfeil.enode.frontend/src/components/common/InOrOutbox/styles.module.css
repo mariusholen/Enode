@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: #1d1c1d;
+    background-color: #f6f6f6;
+}
+
+.greenStatus {
+    background-color: #01c301;
+}
+
+.greyStatus {
+    background-color: grey;
+}
+
+.blueStatus {
+    background-color: #5bc4f5;
+}
+
+.purpleStatus {
+    background-color: #883bbe;
+}
+
+.redStatus {
+    background-color: red;
+}
+
+.table {
+    background-color: var(--tertiary);
+}
+
+.tableHeader {
+    background-color: var(--background);
+    color: var(--tertiary);
+    max-width: 13em;
+}
+
+.tablerow {
+    cursor: pointer;
+}
+
+.tablerow:hover {
+    background-color: #6865bf7c;
+}
+
+.buttonContainer {
+    text-align: center;
+    margin-top: calc(var(--grid) * 2);
+}
+
+.table,
+th,
+td {
+    white-space: nowrap;
+    height: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 0 0.25em 0;
+    border: currentColor;
+    border-spacing: 0;
+    font: normal, Arial, sans-serif;
+    border-bottom: solid 0.05em #336b6b;
+    padding: 1em;
+    letter-spacing: 0.1em;
+}

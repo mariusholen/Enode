@@ -1,0 +1,26 @@
+.container {
+    background-color: var(--background);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--tertiary);
+    align-items: center;
+}
+
+.brand {
+    margin-left: calc(var(--grid) * 6);
+}
+
+.logOut {
+    margin-right: calc(var(--grid) * 6);
+    font-size: larger;
+}
+
+.logOut :link {
+    text-decoration: none;
+    color: var(--tertiary);
+}
+
+.logOut :visited {
+    color: var(--tertiary);
+}

@@ -1,0 +1,54 @@
+.container {
+    display: inline-block;
+    height: calc(var(--grid) * 15);
+    margin-top: calc(var(--grid) * 3);
+}
+
+.confirmButton {
+    background-color: green;
+    color: white;
+    height: calc(var(--grid) * 4);
+    width: auto;
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    margin-left: calc(var(--grid) * 1);
+}
+
+.clearButton {
+    background-color: rgb(38, 104, 165);
+    color: white;
+    height: calc(var(--grid) * 4);
+    width: auto;
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    margin-left: calc(var(--grid) * 1);
+}
+
+.confirmButton:focus {
+    outline: 0;
+}
+
+.confirmButton:hover {
+    background-color: rgb(57, 150, 57);
+}
+
+.confirmButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.label {
+    margin-right: calc(var(--grid) * 2);
+}
+
+.search {
+    width: auto;
+    height: calc(var(--grid) * 3);
+    font-size: large;
+    margin-top: calc(var(--grid) * 4);
+    margin-left: calc(var(--grid) * 2);
+}
