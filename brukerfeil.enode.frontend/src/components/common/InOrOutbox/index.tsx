@@ -37,7 +37,6 @@ const InOrOutbox: React.FC<InOrOutboxProps> = ({
                 <tbody>
                     {messages
                         ? messages.map((m: Message) => {
-                              debugger
                               const dataObject = new Date(m.lastUpdate)
                               const { style, Icon, color } = statusChecker(
                                   m.latestMessageStatus
