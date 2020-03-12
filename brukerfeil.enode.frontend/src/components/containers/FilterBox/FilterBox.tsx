@@ -4,10 +4,10 @@ import SearchSenderReceiver from '../SearchSenderReceiver'
 import { FaChevronDown } from 'react-icons/fa'
 
 type FilterBox = {
-    searchHandlerSender: (id: string) => void
-    searchHandlerReceiver: (id: string) => void
-    clearSender: () => void
-    clearReceiver: () => void
+    onSearchSenderId: (id: string) => void
+    onSearchReceiverId: (id: string) => void
+    onClearIncomingMessages: () => void
+    onClearOutgoingMessages: () => void
 }
 
 export const FilterBox: React.FC<FilterBox> = props => {
@@ -35,13 +35,13 @@ export const FilterBox: React.FC<FilterBox> = props => {
                     <div className={styles.searchContent}>
                         <SearchSenderReceiver
                             placeholder={'Søk på SenderID'}
-                            onSearch={id => props.searchHandlerSender(id)}
-                            onClear={props.clearSender}
+                            onSearch={id => props.onSearchSenderId(id)}
+                            onClear={props.onClearIncomingMessages}
                         />
                         <SearchSenderReceiver
                             placeholder={'Søk på ReceiverID'}
-                            onSearch={id => props.searchHandlerReceiver(id)}
-                            onClear={props.clearReceiver}
+                            onSearch={id => props.onSearchReceiverId(id)}
+                            onClear={props.onClearOutgoingMessages}
                         />
                     </div>
                 </div>

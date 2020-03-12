@@ -15,9 +15,8 @@ namespace Brukerfeil.Enode.API.Controllers
     [Route("[controller]")]
     public class MessageController : ControllerBase
     {
-
         [HttpGet("in")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetAllIncomingMessagesAsync([FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService  message)
+        public async Task<ActionResult<IEnumerable<Message>>> GetAllIncomingMessagesAsync([FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -28,16 +27,18 @@ namespace Brukerfeil.Enode.API.Controllers
                 }
                 var sortedMessages = service.SortMessages(unsortedMessages);
                 var addLatestStatus = message.LatestStatus(sortedMessages);
-                return Ok(addLatestStatus);
-            } catch(Exception ex)
+                return addLatestStatus.ToList();
+                
+            }
+            catch (Exception ex)
             {
                 return this.StatusCode(502, ex.Message);
             }
-            
+
         }
 
         [HttpGet("in/{organizationId}", Name = "GetOrgIncomingMessagesAync")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetOrgIncomingMessagesAsync(string organizationId,[FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
+        public async Task<ActionResult<IEnumerable<Message>>> GetOrgIncomingMessagesAsync(string organizationId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -54,12 +55,12 @@ namespace Brukerfeil.Enode.API.Controllers
                 var sortedMessages = service.SortMessages(unsortedMessages);
                 var addLatestStatus = message.LatestStatus(sortedMessages);
 
-                return Ok(addLatestStatus);
-            } catch(Exception ex)
+                return addLatestStatus.ToList();
+            }
+            catch (Exception ex)
             {
                 return this.StatusCode(502, ex.Message);
             }
-            
         }
 
         [HttpGet("out")]
@@ -73,17 +74,18 @@ namespace Brukerfeil.Enode.API.Controllers
                     return NoContent();
                 }
                 var sortedMessages = service.SortMessages(unsortedMessages);
-                var addLatestStatus = message.LatestStatus(sortedMessages);
-                return Ok(addLatestStatus);
-            } catch (Exception ex)
+                var addedLatestStatus = message.LatestStatus(sortedMessages);
+                return addedLatestStatus.ToList();
+            }
+            catch (Exception ex)
             {
                 return this.StatusCode(502, ex.Message);
             }
-            
+
         }
 
         [HttpGet("out/{organizationId}", Name = "GetOrgOutgoingMessagesAsync")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetOrgOutgoingMessagesAsync(string organizationId,[FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
+        public async Task<ActionResult<IEnumerable<Message>>> GetOrgOutgoingMessagesAsync(string organizationId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -99,12 +101,13 @@ namespace Brukerfeil.Enode.API.Controllers
                 }
                 var sortedMessages = service.SortMessages(unsortedMessages);
                 var addLatestStatus = message.LatestStatus(sortedMessages);
-                return Ok(addLatestStatus);
-            } catch (Exception ex)
+                return addLatestStatus.ToList();
+            }
+            catch (Exception ex)
             {
                 return this.StatusCode(502, ex.Message);
             }
-            
+
         }
 
         [HttpGet("sender/{senderId}", Name = "GetAllMessagesBySenderIdAsync")]
@@ -123,8 +126,8 @@ namespace Brukerfeil.Enode.API.Controllers
                     return NoContent();
                 }
                 var sortedMessages = service.SortMessages(unsortedMessages);
-                var addLatestStatus = message.LatestStatus(sortedMessages);
-                return Ok(addLatestStatus);
+                var addedLatestStatus = message.LatestStatus(sortedMessages);
+                return addedLatestStatus.ToList();
             }
             catch (Exception ex)
             {
@@ -150,7 +153,7 @@ namespace Brukerfeil.Enode.API.Controllers
                 }
                 var sortedMessages = service.SortMessages(unsortedMessages);
                 var addLatestStatus = message.LatestStatus(sortedMessages);
-                return Ok(addLatestStatus);
+                return addLatestStatus.ToList();
             }
             catch (Exception ex)
             {
@@ -176,7 +179,7 @@ namespace Brukerfeil.Enode.API.Controllers
                 }
                 var sortedMessages = service.SortMessages(unsortedMessages);
                 var addLatestStatus = message.LatestStatus(sortedMessages);
-                return Ok(addLatestStatus);
+                return addLatestStatus.ToList();
             }
             catch (Exception ex)
             {
@@ -204,12 +207,61 @@ namespace Brukerfeil.Enode.API.Controllers
                 }
                 var sortedMessages = service.SortMessages(unsortedMessages);
                 var addLatestStatus = message.LatestStatus(sortedMessages);
-                return Ok(addLatestStatus);
+                return addLatestStatus.ToList();
             }
             catch (Exception ex)
             {
                 return this.StatusCode(502, ex.Message);
             }
         }
+
+        [HttpGet("elements/in")]
+
+        public async Task<ActionResult<IEnumerable<SenderRecipient>>> GetAllIncmoingElementsMessagesAsync(
+            [FromServices] IElementsMessageRepository elementsMessageRepository,
+            [FromServices] IElementsValidationService service)
+        {
+            try
+            {
+                var unsortedElementsMessages = await elementsMessageRepository.GetAllIncomingElementsMessagesAsync();
+                if (unsortedElementsMessages.ToList().Count() == 0)
+                {
+                    return NoContent();
+                }
+
+                var sortedElementsMessages = service.ValidateElementsIncomingMessages(unsortedElementsMessages.ToList());
+
+                return sortedElementsMessages;
+            }
+            catch (System.InvalidOperationException ex)
+            {
+                return this.StatusCode(402, ex.Message);
+            }
+        }
+
+        [HttpGet("elements/out")]
+
+        public async Task<ActionResult<IEnumerable<SenderRecipient>>> GetAllOutgoingElementsMessagesAsync(
+                [FromServices] IElementsMessageRepository elementsMessageRepository,
+                [FromServices] IElementsValidationService service)
+        {
+            try
+            {
+                var unsortedElementsMessages = await elementsMessageRepository.GetAllOutgoingElementsMessagesAsync();
+                Console.WriteLine(unsortedElementsMessages);
+                if (unsortedElementsMessages.ToList().Count() == 0)
+                {
+                    return NoContent();
+                }
+
+                var sortedElementsMessages = service.ValidateElementsOutgoingMessages(unsortedElementsMessages.ToList());
+                return sortedElementsMessages;
+            }
+            catch (System.InvalidOperationException ex)
+            {
+                return this.StatusCode(402, ex.Message);
+            }
+        }
     }
 }
+

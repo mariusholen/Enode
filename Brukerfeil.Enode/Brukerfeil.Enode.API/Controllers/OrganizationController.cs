@@ -2,29 +2,24 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Brukerfeil.Enode.Common.Models;
-using Brukerfeil.Enode.Common.Repositories;
+using Brukerfeil.Enode.Common.Configurations;
 
 namespace Brukerfeil.Enode.API.Controllers
 {
-
     [ApiController]
     [Route("[controller]")]
     public class OrganizationController : ControllerBase
     {
-
-        // GET: api/Organization
-        [HttpGet]
-        public async Task<IEnumerable<Organization>> GetOrganization([FromServices] IOrganizationRepository organizationRepository)
+        private readonly IConfigProvider _configProvider;
+        public OrganizationController(IConfigProvider configProvider)
         {
-            return await organizationRepository.GetOrganizations();
+            _configProvider = configProvider;
         }
 
-        // GET: api/Organization/5
-        [HttpGet("{id}", Name = "GetOrganization")]
-        public async Task<Organization> GetOrganization(int id, [FromServices] IOrganizationRepository organizationRepository)
+        [HttpGet("org")]
+        public async Task<IEnumerable<Organization>> GetOrganizationConfigsAsync()
         {
-
-            return await organizationRepository.GetOrganization(id);
+            return await _configProvider.GetOrganizationConfigsAsync();
         }
     }
 }

@@ -6,9 +6,17 @@ type SearchSenderReceiver = {
     placeholder: string
     onSearch: (id: string) => void
     onClear: () => void
+    styling?: StylesType
 }
 
-const SearchSenderReceiver: React.FC<SearchSenderReceiver> = props => {
+type StylesType = {
+    readonly [key: string]: string
+}
+
+const SearchSenderReceiver: React.FC<SearchSenderReceiver> = ({
+    styling = styles,
+    ...props
+}) => {
     const [id, setId] = useState('')
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,20 +39,25 @@ const SearchSenderReceiver: React.FC<SearchSenderReceiver> = props => {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.searchContainer}>
             <form onSubmit={handleSubmit}>
-                <input
-                    className={styles.search}
-                    type="text"
-                    maxLength={9}
-                    value={id}
-                    onChange={e => setId(e.target.value)}
-                    placeholder={props.placeholder}
-                />
-                <button className={styles.confirmButton}>Bekreft</button>
-                <button className={styles.clearButton} onClick={handleClear}>
-                    Klarer søk
-                </button>
+                <fieldset className={styling.fieldset}>
+                    <input
+                        className={styling.search}
+                        type="number"
+                        maxLength={9}
+                        value={id}
+                        onChange={e => setId(e.target.value)}
+                        placeholder={props.placeholder}
+                    />
+                    <button className={styling.confirmButton}>Bekreft</button>
+                    <button
+                        className={styling.clearButton}
+                        onClick={handleClear}
+                    >
+                        Klarer søk
+                    </button>
+                </fieldset>
             </form>
         </div>
     )

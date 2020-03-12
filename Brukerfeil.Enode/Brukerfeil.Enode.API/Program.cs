@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Brukerfeil.Enode.API.Configurations;
+using Brukerfeil.Enode.Common.Configurations;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace Brukerfeil.Enode.API
 {
@@ -13,6 +9,7 @@ namespace Brukerfeil.Enode.API
     {
         public static void Main(string[] args)
         {
+
             CreateHostBuilder(args).Build().Run();
         }
 

@@ -62,7 +62,7 @@ namespace Brukerfeil.Enode.Repositories
                 throw new ArgumentException(exx);
             }
         }
-        
+
         public async Task<IEnumerable<Message>> GetAllOutgoingMessagesAsync()
         {
             Client.BaseAddress = new Uri(_URL);

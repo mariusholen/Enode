@@ -1,3 +1,19 @@
+.greenStatus {
+    background-color: #01c301;
+}
+
+.greyStatus {
+    background-color: grey;
+}
+
+.blueStatus {
+    background-color: #5bc4f5;
+}
+
+.redStatus {
+    background-color: red;
+}
+
 .background {
     position: fixed;
     width: 100%;
@@ -12,21 +28,218 @@
 
 .container {
     position: absolute;
+    height: fit-content;
     left: 25%;
     right: 25%;
     top: 25%;
     bottom: 25%;
-    height: fit-content;
+    border-radius: 0.5em;
     background-color: white;
 }
 
+.exit {
+    float: right;
+    cursor: pointer;
+    width: 2em;
+    border-width: 0px;
+    transition: color 0.3s;
+    font-size: 1.4em;
+    font-weight: bolder;
+    color: black;
+    border-color: white;
+    border-radius: 0.5em;
+    background-color: white;
+}
+
+.exit:hover {
+    color: red;
+}
+
 .header {
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0;
+    padding-left: 1em;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.messageID {
+    padding-left: 0.5em;
 }
 
 .content {
-    text-align: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: -1em;
+}
+
+.table {
+    max-width: 35rem;
+    min-width: 35rem;
+    margin: 2em;
+}
+
+.tableHeader {
+    font-size: 1.5em;
+    color: var(--secondary);
+    border: 0;
+    text-align: left;
+}
+
+.table tr {
+    padding: 1em;
+    border: 0.1em solid black;
+    font-size: 1.2em;
+}
+
+.table th {
+    text-align: left;
+    width: 15%;
+}
+
+.table td {
+    text-align: left;
+    width: 10em;
+}
+
+.timeLine {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1em;
+    padding: 0.1em;
+    margin: 4em;
+    list-style: none;
 }
+
+.firstTimeLineItem {
+    position: relative;
+    margin: 0;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    font-weight: bold;
+    color: var(--background);
+}
+
+.firstTimeLineItem::after {
+    content: '●';
+    position: absolute;
+    left: -0.3em;
+    top: -0.5em;
+    font-size: 5em;
+    color: var(--background);
+}
+
+.firstTimeLineItem::before {
+    content: '';
+    position: absolute;
+    bottom: -4em;
+    top: 1em;
+    left: -0.1em;
+    width: 0.2em;
+    background-color: var(--shades);
+}
+
+.timeLineItem {
+    position: relative;
+    margin: 0;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+}
+
+.timeLineItem::after {
+    content: '●';
+    position: absolute;
+    left: -0.3em;
+    top: -0.5em;
+    font-size: 5em;
+    color: var(--shades);
+}
+
+.timeLineItem:before {
+    content: '';
+    position: absolute;
+    width: 0.2em;
+    bottom: -4em;
+    top: 1em;
+    left: -0.1em;
+    background-color: var(--shades);
+}
+
+/* .timeLineItem::before:last-child {
+    content: '';
+    position: absolute;
+    width: 0.2em;
+    bottom: -4em;
+    top: 1em;
+    left: -0.1em;
+    background-color: red;
+} */
+
+/* .ninja:before {
+    content: '';
+    position: absolute;
+    width: 1em;
+    top: 19em;
+    bottom: 0;
+    transform: translate(-0.5em, 0em);
+    background-color: red;
+} */
+
+.lastUpdated {
+    padding-left: 1.4em;
+}
+
+/* li {
+    position: relative;
+    margin: 0;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    
+}
+
+li:after {
+    content: '●';
+    position: absolute;
+    left: -0.3em;
+    top: -0.5em;
+    color: blue;
+    font-size: 5em;
+}
+
+li:before {
+    content: '';
+    background-color: var(--shades);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0.4em;
+    width: 0.2em;
+} */
+
+/* li {
+    position: relative;
+    margin: 0;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    list-style: none;
+}
+
+li:before {
+    content: '';
+    background-color: var(--shades);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0.4em;
+    width: 0.2em;
+}
+
+li:after {
+    content: '●';
+    position: absolute;
+    left: -0.3em;
+    top: -0.5em;
+    color: blue;
+    font-size: 5em;
+}  */

@@ -1,54 +1,74 @@
-.container {
+.searchContainer {
     display: inline-block;
-    height: calc(var(--grid) * 15);
-    margin-top: calc(var(--grid) * 3);
 }
 
-.confirmButton {
-    background-color: green;
-    color: white;
-    height: calc(var(--grid) * 4);
+.search,
+.confirmButton,
+.clearButton {
+    font-size: inherit;
+    padding: 0.2em;
+    margin: 0.1em 0.2em;
     width: auto;
-    border-radius: 5px;
-    font-size: 15px;
-    border: none;
+    border-radius: 0.3em;
+    border: 0.08em solid gray;
+    color: gray;
+    background-color: var(--shades);
+    /* the following ensures they're all using the same box-model for rendering */
+    -moz-box-sizing: border-box; /* or `border-box` */
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* .confirmButton {
+    font-size: inherit;
+    padding: 0.2em;
+    margin: 0.1em 0.2em;
+    /* the following ensures they're all using the same box-model for rendering 
+    -moz-box-sizing: content-box; /* or `border-box` 
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+
     cursor: pointer;
-    margin-left: calc(var(--grid) * 1);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: 0.08rem solid gray;
+    margin: 0.3rem;
+    color: gray;
+    background-color: var(--shades);
 }
 
 .clearButton {
-    background-color: rgb(38, 104, 165);
-    color: white;
-    height: calc(var(--grid) * 4);
-    width: auto;
-    border-radius: 5px;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
-    margin-left: calc(var(--grid) * 1);
-}
+    font-size: inherit;
+    padding: 0.2em;
+    margin: 0.1em 0.2em;
+    /* the following ensures they're all using the same box-model for rendering 
+    -moz-box-sizing: content-box; /* or `border-box` 
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
 
-.confirmButton:focus {
-    outline: 0;
-}
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: 0.08rem solid gray;
+    margin: 0.3rem;
+    color: gray;
+    background-color: var(--shades);
+} */
 
 .confirmButton:hover {
+    color: white;
+    border-color: rgb(57, 150, 57);
     background-color: rgb(57, 150, 57);
 }
 
-.confirmButton:active {
-    position: relative;
-    top: 1px;
+.clearButton:hover {
+    color: white;
+    border-color: var(--secondary);
+    background-color: var(--secondary);
 }
 
-.label {
-    margin-right: calc(var(--grid) * 2);
-}
-
-.search {
-    width: auto;
-    height: calc(var(--grid) * 3);
-    font-size: large;
-    margin-top: calc(var(--grid) * 4);
-    margin-left: calc(var(--grid) * 2);
+.fieldset {
+    border: none;
+    padding: 0px;
+    font-size: 1.3rem;
 }

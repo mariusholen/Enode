@@ -3,24 +3,95 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: var(--tertiary);
     align-items: center;
 }
 
 .brand {
-    margin-left: calc(var(--grid) * 6);
+    font-size: 3.5em;
+    font-weight: normal;
+    margin-right: auto;
+    margin: 0.2em;
+    color: var(--standard);
 }
 
-.logOut {
-    margin-right: calc(var(--grid) * 6);
-    font-size: larger;
+.organization {
+    font-size: 1.5rem;
+    margin-left: 0.5em;
+    margin-bottom: -0.15em;
+    color: white;
 }
 
-.logOut :link {
-    text-decoration: none;
-    color: var(--tertiary);
+.searchContent {
+    margin-left: auto;
 }
 
-.logOut :visited {
-    color: var(--tertiary);
+.hamburger {
+    font-size: 4rem;
+    color: var(--standard);
+    background-color: var(--secondary);
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.filter {
+    font-size: 2rem;
+    color: azure;
+    margin-right: 1rem;
+}
+
+/*---classes which is passed to the SearchsenderReceiver*/
+.searchContainer {
+    display: inline-block;
+}
+
+.search {
+    font-size: inherit;
+    width: auto;
+    padding: 0.5rem;
+    border-radius: 0.3em;
+    border: 0.08em solid gray;
+    margin: 0.03em;
+    color: black;
+    background-color: var(--standard);
+}
+
+.confirmButton {
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: 0.08rem solid gray;
+    margin: 0.3rem;
+    color: gray;
+    background-color: var(--shades);
+}
+
+.clearButton {
+    display: none;
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: 0.08rem solid gray;
+    margin: 0.3rem;
+    color: gray;
+    background-color: var(--shades);
+}
+
+.confirmButton:hover {
+    color: white;
+    border-color: #399639;
+    background-color: #399639;
+}
+
+.clearButton:hover {
+    color: white;
+    border-color: var(--secondary);
+    background-color: var(--secondary);
+}
+
+.fieldset {
+    border: none;
+    padding: 0px;
+    font-size: 1.6rem;
 }

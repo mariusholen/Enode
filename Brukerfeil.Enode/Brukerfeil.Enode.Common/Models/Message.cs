@@ -38,6 +38,8 @@ namespace Brukerfeil.Enode.Common.Models
 
         public string latestMessageStatus { get; set; }
 
+        public DateTime created { get; set; }
+
         public IEnumerable<MessageStatuses> messageStatuses { get; set; }
 
     }

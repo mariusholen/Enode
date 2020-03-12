@@ -14,5 +14,6 @@ namespace Brukerfeil.Enode.Common.Repositories
         Task<IEnumerable<Message>> GetOrgMessagesBySenderIdAsync(string senderId, string organizationId);
         Task<IEnumerable<Message>> GetAllMessagesByReceiverIdAsync(string receiverId);
         Task<IEnumerable<Message>> GetOrgMessagesByReceiverIdAsync(string receiverId, string organizationId);
+
     }
 }

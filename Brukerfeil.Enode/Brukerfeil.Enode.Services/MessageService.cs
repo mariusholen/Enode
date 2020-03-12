@@ -2,7 +2,7 @@
 using System.Linq;
 using Brukerfeil.Enode.Common.Services;
 using System.Collections.Generic;
-
+using System;
 
 namespace Brukerfeil.Enode.Services
 {
@@ -14,9 +14,14 @@ namespace Brukerfeil.Enode.Services
             {
                 var lastStatus = message.messageStatuses.Last().status.ToString();
                 message.latestMessageStatus = lastStatus;
+                DateTime firstDateTime = message.messageStatuses.First().lastUpdate;
+                message.created = firstDateTime;
                 message.messageStatuses = null;
             }
             return messages;
         }
+
     }
+
 }
+

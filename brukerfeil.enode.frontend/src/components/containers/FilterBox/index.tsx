@@ -12,10 +12,10 @@ export const FilterBoxContainer: React.FC<FilterBoxContainer> = props => {
     return (
         <div>
             <FilterBox
-                searchHandlerReceiver={props.onSearchReceiverId}
-                searchHandlerSender={props.onSearchSenderId}
-                clearReceiver={props.onClearOutgoingMessages}
-                clearSender={props.onClearIncomingMessages}
+                onSearchSenderId={props.onSearchSenderId}
+                onSearchReceiverId={props.onSearchReceiverId}
+                onClearIncomingMessages={props.onClearIncomingMessages}
+                onClearOutgoingMessages={props.onClearOutgoingMessages}
             />
         </div>
     )

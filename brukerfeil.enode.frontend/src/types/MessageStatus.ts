@@ -1,4 +1,4 @@
-import Status from './Message'
+import { Status } from './Message'
 
 type MessageStatus = {
     id: string

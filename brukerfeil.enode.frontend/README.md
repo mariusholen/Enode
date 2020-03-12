@@ -45,6 +45,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 3.  [Hooks](#hooks)
 4.  [Naming Conventions](#naming-conventions)
 5.  [Styling](#styling)
+6.  [Testing](#testing)
 # 
 ## Components
 
@@ -186,3 +187,8 @@ const MyComponent: React.FC = () => {
     )
 }
 ```
+
+## Testing
+To run all tests, run `npm test`
+
+Test files should be of this format: `[fileNameOfWhatYouAreTesting].test.ts` and should be in the same folder as the file you are writing tests for.

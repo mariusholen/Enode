@@ -1,41 +1,43 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import Organization from '../types/Organization'
+import { httpResponseHandler } from '../utils/utils'
+//import {BACKEND_BASEURL, ORGANIZATION_ENDPOINT} from '../constants'
+import { TEMP_ORGANIZATION_ENDPOINT } from '../constants'
+
+const headers = { 'Content-type': 'application/json' }
 
 export default () => {
-    const [Organization /*setOrganizations*/] = useState<Organization[]>(
-        organizationArray
-    )
-    return Organization
+    const [organizations, setOrganizations] = useState<Organization[]>([])
+    const [isFetching, setIsFetching] = useState<boolean>(false)
+    const [error, setError] = useState<string>('')
+
+    const fetchOrganizations = async () => {
+        setIsFetching(true)
+
+        try {
+            const response = await axios.get<Organization[]>(
+                TEMP_ORGANIZATION_ENDPOINT,
+                {
+                    headers,
+                }
+            )
+
+            httpResponseHandler(response, setOrganizations, setError)
+        } catch (exception) {
+            console.log(`Error when fetching Organizations: ${exception}`)
+            setError(`Error when fetching Organizations: ${exception}`)
+        }
+        setIsFetching(false)
+    }
+
+    useEffect(() => {
+        fetchOrganizations()
+    }, [])
+
+    return {
+        organizations,
+        isFetching,
+        error,
+    }
 }
-
-const organizationArray: Organization[] = [
-    {
-        organizationName: 'Stavanger kommune',
-        organizationID: 989778471,
-    },
-
-    {
-        organizationName: 'Kristiansand kommune',
-        organizationID: 991825827,
-    },
-
-    {
-        organizationName: 'Sandnes kommune',
-        organizationID: 987464291,
-    },
-
-    {
-        organizationName: 'Atea',
-        organizationID: 989778471,
-    },
-
-    {
-        organizationName: 'Skatteetaten',
-        organizationID: 991825827,
-    },
-
-    {
-        organizationName: 'Laanekassen',
-        organizationID: 987464291,
-    },
-]

@@ -7,7 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Brukerfeil.Enode.Common.Repositories;
 using Brukerfeil.Enode.Services;
 using Brukerfeil.Enode.Common.Services;
- 
+using Brukerfeil.Enode.API.Configurations;
+
 namespace Brukerfeil.Enode.API
 {
     public class Startup
@@ -15,6 +16,7 @@ namespace Brukerfeil.Enode.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }
@@ -35,11 +37,15 @@ namespace Brukerfeil.Enode.API
                                             .AllowAnyOrigin();
                     });
             });
-            services.AddHttpClient<IOrganizationRepository, OrganizationRepository>();
+
+            services.AddSingleton(ConfigProvider.Instance);
             services.AddHttpClient<IMessageRepository, MessageRepository>();
             services.AddHttpClient<IMessageStatusRepository, MessageStatusRepository>();
             services.AddTransient<ISortingService, SortingService>();
             services.AddTransient<IMessageService, MessageService>();
+            services.AddHttpClient<IElementsMessageRepository, ElementsMessageRepository>();
+            services.AddTransient<IElementsValidationService, ElementsValidationService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

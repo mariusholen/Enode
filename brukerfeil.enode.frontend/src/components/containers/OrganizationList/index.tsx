@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const OrganizationList: React.FC = () => {
     const [selectedOrg, setSelectedOrg] = useState<string>('0')
-    const organizationList = useOrganizations()
+    const {organizations} = useOrganizations()
     const handleClick = (
         e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
     ) => {
@@ -18,7 +18,7 @@ const OrganizationList: React.FC = () => {
         <option
             className={styles.options}
             key={o.organizationName}
-            value={o.organizationID}
+            value={o.organizationId}
         >
             {o.organizationName}
         </option>
@@ -26,7 +26,6 @@ const OrganizationList: React.FC = () => {
 
     return (
         <form className={styles.organizationList}>
-            <label className={styles.labeling}>Velg din organisasjon</label>
             <br />
             <select
                 className={styles.orgItem}
@@ -34,10 +33,10 @@ const OrganizationList: React.FC = () => {
                 onChange={e => setSelectedOrg(e.target.value)}
             >
                 <option value={0} disabled>
-                    Trykk og velg en organisasjon fra listen
+                    Velg din organisasjon
                 </option>
 
-                {organizationList.map(renderorganizationList)}
+                {organizations.map(renderorganizationList)}
                 <option value={1}>Alle Organisasjoner</option>
             </select>
             <div>

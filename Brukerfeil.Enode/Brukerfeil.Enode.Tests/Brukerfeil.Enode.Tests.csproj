@@ -27,4 +27,7 @@
     <Compile Remove="ServiceTests\EmptyClass.cs" />
     <Compile Remove="ServiceTests\OrganizationRepositoryTest.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ConfigurationTests\" />
+  </ItemGroup>
 </Project>

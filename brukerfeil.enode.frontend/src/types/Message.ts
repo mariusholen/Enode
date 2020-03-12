@@ -35,6 +35,7 @@ type Message = {
     direction: Direction
     serviceIdentifier: ServiceIdentifier
     latestMessageStatus: Status
+    created: Date
 }
 
 export default Message

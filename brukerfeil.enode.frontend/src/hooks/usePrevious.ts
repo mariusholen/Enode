@@ -1,10 +1,9 @@
 import { useRef, useEffect } from 'react'
 
-export default <T extends unknown>(messages: T) => {
+export default <T extends unknown>(content: T) => {
     const ref = useRef<T>()
-
     useEffect(() => {
-        ref.current = messages
-    }, [messages])
+        ref.current = content
+    }, [content])
     return ref.current
 }

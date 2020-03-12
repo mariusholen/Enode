@@ -10,7 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brukerfeil.Enode.Common", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brukerfeil.Enode.API", "Brukerfeil.Enode.API\Brukerfeil.Enode.API.csproj", "{D326A829-3D83-43AF-AD4A-2BAA58C4CC02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brukerfeil.Enode.Tests", "Brukerfeil.Enode.Tests\Brukerfeil.Enode.Tests.csproj", "{7D61C6B1-5C11-431D-9569-849B5E62699F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brukerfeil.Enode.Tests", "Brukerfeil.Enode.Tests\Brukerfeil.Enode.Tests.csproj", "{7D61C6B1-5C11-431D-9569-849B5E62699F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brukerfeil.Enode.Schemas", "Brukerfeil.Enode.Schemas\Brukerfeil.Enode.Schemas.csproj", "{748FA1ED-FD95-4AAB-80C1-9BEC5EF2CA9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{7D61C6B1-5C11-431D-9569-849B5E62699F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D61C6B1-5C11-431D-9569-849B5E62699F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D61C6B1-5C11-431D-9569-849B5E62699F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{748FA1ED-FD95-4AAB-80C1-9BEC5EF2CA9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{748FA1ED-FD95-4AAB-80C1-9BEC5EF2CA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{748FA1ED-FD95-4AAB-80C1-9BEC5EF2CA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{748FA1ED-FD95-4AAB-80C1-9BEC5EF2CA9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

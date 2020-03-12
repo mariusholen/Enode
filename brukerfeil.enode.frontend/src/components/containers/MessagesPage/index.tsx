@@ -7,7 +7,6 @@ import useMessageStatus from '../../../hooks/useMessageStatus'
 import InOrOutbox from '../../common/InOrOutbox'
 import Message from '../../../types/Message'
 import Navbar from '../../common/Navbar'
-import { FilterBoxContainer } from '../FilterBox/index'
 import MessageModal from '../../MessageModal'
 
 type MessagesPageRouteParams = {
@@ -25,19 +24,30 @@ type InAndOutMessages = {
 
 const MessagesPage: React.FC<MessagesPageProps> = props => {
     const orgId = props.match.params.id
+    const findMessage = (id: string) => {
+        const message = [...inMessages, ...outMessages].find(
+            m => m.messageId === id
+        )
 
-    const [activeId, setActiveId] = useState('')
+        if (message) {
+            setActiveMessage(message)
+        }
+    }
+
+    const [activeMessage, setActiveMessage] = useState<Message>()
     const [inMessages, setInMessages] = useState<Message[]>([])
     const [outMessages, setOutMessages] = useState<Message[]>([])
 
-    const { statuses } = useMessageStatus(activeId)
+    const { statuses } = useMessageStatus(
+        activeMessage ? activeMessage.messageId : ''
+    )
 
     const {
         tempInMessages,
         tempOutMessages,
         isFetching,
-        fetchBySenderID,
-        fetchByReceiverID,
+        fetchBySenderId,
+        fetchByReceiverId,
     } = useMessages(orgId)
 
     const previousMessages = usePrevious<InAndOutMessages>({
@@ -45,33 +55,21 @@ const MessagesPage: React.FC<MessagesPageProps> = props => {
         outMessages,
     })
 
-    useEffect(() => {
-        setInMessages(tempInMessages)
-        setOutMessages(tempOutMessages)
-    }, [tempInMessages, tempOutMessages])
-
-    const handleSearchByReceiverId = async (id: string) => {
-        setOutMessages(await fetchByReceiverID(id))
-    }
-    const handleSearchBySenderId = async (id: string) => {
-        const result = await fetchBySenderID(id)
-        setInMessages(result)
-    }
     const handleClearIncomingMessages = async () => {
         if (previousMessages) setInMessages(previousMessages.inMessages)
     }
     const handleClearOutgoingMessages = async () => {
         if (previousMessages) setOutMessages(previousMessages.outMessages)
     }
+
+    useEffect(() => {
+        setInMessages(tempInMessages)
+        setOutMessages(tempOutMessages)
+    }, [tempInMessages, tempOutMessages])
+
     return (
         <>
             <Navbar />
-            <FilterBoxContainer
-                onSearchSenderId={handleSearchBySenderId}
-                onSearchReceiverId={handleSearchByReceiverId}
-                onClearIncomingMessages={handleClearIncomingMessages}
-                onClearOutgoingMessages={handleClearOutgoingMessages}
-            />
             <div className={styles.container}>
                 {isFetching ? (
                     <pre>Loading..</pre>
@@ -82,14 +80,28 @@ const MessagesPage: React.FC<MessagesPageProps> = props => {
                                 <InOrOutbox
                                     direction="IN"
                                     messages={inMessages}
-                                    onChangeActive={setActiveId}
-                                    selectedStatuses={statuses}
+                                    onChangeActive={id => findMessage(id)}
+                                    onSearchSenderId={fetchBySenderId}
+                                    onSearchReceiverId={fetchByReceiverId}
+                                    onClearIncomingMessages={
+                                        handleClearIncomingMessages
+                                    }
+                                    onClearOutgoingMessages={
+                                        handleClearOutgoingMessages
+                                    }
                                 />
                                 <InOrOutbox
                                     direction="OUT"
                                     messages={outMessages}
-                                    onChangeActive={setActiveId}
-                                    selectedStatuses={statuses}
+                                    onChangeActive={id => findMessage(id)}
+                                    onSearchSenderId={fetchBySenderId}
+                                    onSearchReceiverId={fetchByReceiverId}
+                                    onClearIncomingMessages={
+                                        handleClearIncomingMessages
+                                    }
+                                    onClearOutgoingMessages={
+                                        handleClearOutgoingMessages
+                                    }
                                 />
                             </>
                         ) : (
@@ -97,15 +109,23 @@ const MessagesPage: React.FC<MessagesPageProps> = props => {
                                 <InOrOutbox
                                     direction="IN"
                                     messages={[...inMessages, ...outMessages]}
-                                    onChangeActive={setActiveId}
-                                    selectedStatuses={statuses}
+                                    onChangeActive={id => findMessage(id)}
+                                    onSearchSenderId={fetchBySenderId}
+                                    onSearchReceiverId={fetchByReceiverId}
+                                    onClearIncomingMessages={
+                                        handleClearIncomingMessages
+                                    }
+                                    onClearOutgoingMessages={
+                                        handleClearOutgoingMessages
+                                    }
                                 />
                             </>
                         )}
-                        {statuses.length > 0 && activeId ? (
+                        {statuses.length > 0 && activeMessage ? (
                             <MessageModal
                                 statuses={statuses}
-                                onCloseModal={() => setActiveId('')}
+                                message={activeMessage}
+                                onCloseModal={() => setActiveMessage(undefined)}
                             />
                         ) : null}
                     </>

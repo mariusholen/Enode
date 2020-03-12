@@ -1,8 +1,8 @@
 type Organization = {
     organizationName: string
-    organizationID?: number
-    //OrganisationNumber: string? fra Elements test data
-
+    organizationId: number //ExternalId
+    database?: string
+    ExternalSystemName?: string
 }
 
 export default Organization

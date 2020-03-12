@@ -1,4 +1,4 @@
-.frontPage {
+/* .frontPage {
     text-align: center;
     height: 100%;
     display: flex;
@@ -19,4 +19,28 @@
     color: var(--secondary);
     margin-bottom: calc(var(--grid) * 5);
     font-size: xxx-large;
+} */
+
+.container {
+    display: flex;
+    height: calc(100% - 48.9px);
+    justify-content: center;
+    align-items: center;
+}
+
+.organizationSelection {
+    /* font-size: 5px; */
+    height: 40%;
+    width: 35%;
+    border: 0.2rem solid var(--highlight);
+    border-radius: 0.4rem;
+}
+
+.brand {
+    display: flex;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--standard);
 }
