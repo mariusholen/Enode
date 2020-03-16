@@ -16,18 +16,18 @@ namespace Brukerfeil.Enode.API.Configurations
 {
     public class ConfigProvider : IConfigProvider
     {
-            private static IConfigurationRoot _localConfigRoot;
-            private static IConfigManager<ConfigWrapper> _configManager;
+        private static IConfigurationRoot _localConfigRoot;
+        private static IConfigManager<ConfigWrapper> _configManager;
 
-            private static readonly Lazy<IConfigProvider> InstanceLazy = new Lazy<IConfigProvider>(() => new ConfigProvider());
+        private static readonly Lazy<IConfigProvider> InstanceLazy = new Lazy<IConfigProvider>(() => new ConfigProvider());
 
-            public static IConfigProvider Instance => InstanceLazy.Value;
+        public static IConfigProvider Instance => InstanceLazy.Value;
 
-            private ConfigProvider()
-            {
+        private ConfigProvider()
+        {
             _localConfigRoot = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                   .AddJsonFile("Appsettings.json", optional: false, reloadOnChange: true)
-                   .AddJsonFile($"Appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", optional: true, reloadOnChange: true)
+                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                   .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", optional: true, reloadOnChange: true)
                    .Build();
 
             var ConfigManager = ConfigManagerFactory<ConfigWrapper>.CreateConfigManager(
@@ -35,30 +35,30 @@ namespace Brukerfeil.Enode.API.Configurations
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.json"),
                 new List<SchemaEntry>
                 {
-                    SchemaEntry.Create<OrganizationSchemaContent>()
+                    SchemaEntry.Create<OrganizationSchema>()
                 });
 
             _configManager = new CachingConfigManagerDecorator<ConfigWrapper>(ConfigManager);
 
-            }
-
-            public async Task<IEnumerable<Organization>> GetOrganizationConfigsAsync()
-            {
-                //Get 
-                var scopeConfig = await _configManager.GetScopeConfigAsync();
-                return scopeConfig.OrganizationSchema.Content as IEnumerable<Organization>;
-
-            }
-
-            public string GetGlobalConfiguration(string key)
-            {
-                return _localConfigRoot[($"Appsettings:{key}")];
-            }
         }
-    
-        public class ConfigWrapper : TenantConfig
+
+        public async Task<IEnumerable<Organization>> GetOrganizationConfigsAsync()
         {
-            [JsonProperty(OrganizationSchemaContent.Schema)]
-            public OrganizationSchemaContent OrganizationSchema { get; set; }
+            //Get 
+            var scopeConfig = await _configManager.GetScopeConfigAsync();
+            return scopeConfig.OrganizationSchema as IEnumerable<Organization>;
+
+        }
+
+        public string GetGlobalConfiguration(string key)
+        {
+            return _localConfigRoot[($"appsettings:{key}")];
         }
     }
+
+    public class ConfigWrapper : TenantConfig
+    {
+        [JsonProperty(OrganizationSchema.Schema)]
+        public OrganizationSchema OrganizationSchema { get; set; }
+    }
+}

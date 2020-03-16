@@ -1,45 +1,46 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace Brukerfeil.Enode.Schemas
 {
-    [Description("Collection of organizations")]
-    public class OrganizationSchemaContent
-    {
-        public const string Schema = "organizationContent";
-
-        [DataMember(Name = "Content")]
-        [Description("Collection of organizations")]
-        [DefaultValue(new object[] { })]
-        public IEnumerable<OrganizationSchema> Content { get; set; }
-    }
-
-    [Description("Data model for organization")]
+    [Description("Configuration for organizations")]
     public class OrganizationSchema
     {
+        public const string Schema = "organization";
 
-        [DataMember(Name = "OrgId")]
-        [DefaultValue(null)]
-        [Description("Organization Identifier for an organization")]
-        public int OrgId { get; set; }
-
-        [DataMember(Name = "OrgName")]
+        [DataMember(Name = "OrganizationName")]
         [DefaultValue("")]
-        [Description("The name of an organization")]
-        public string OrgName { get; set; }
+        [Description("The name of a specific organization")]
+        public string OrganizationName { get; set; }
 
-        [DataMember(Name = "Tenants")]
-        [DefaultValue(new object[] { })]
-        [Description("A list of Tenants for an organization")]
-        public IEnumerable<Tenant> Tenants { get; set; }
-
-    }
-    public class Tenant
-    {
-        [DataMember(Name = "TenantName")]
+        [DataMember(Name = "Username")]
         [DefaultValue("")]
-        [Description("Name of a tenant")]
-        public string TenantName { get; set; }
+        [Description("Username for an organization")]
+        public string Username { get; set; }
+
+        [DataMember(Name = "Password")]
+        [DefaultValue("")]
+        [Description("Password for an organization")]
+        public string Password { get; set; }
+
+        [DataMember(Name = "IntegrationPoint")]
+        [DefaultValue("")]
+        [Description("URL to an organization's Difi integrationpoint")]
+        public string IntegrationPoint { get; set; }
+
+        [DataMember(Name = "ElementsNcore")]
+        [DefaultValue("")]
+        [Description("URL to ELements NCore integrationpoint")]
+        public string ElementsNcore { get; set; }
+
+        [DataMember(Name = "Tenant")]
+        [DefaultValue("")]
+        [Description("Tenant of an organization")]
+        public string Tenant { get; set; }
+
+        [DataMember(Name = "Enabled")]
+        [DefaultValue("")]
+        [Description("Enable reading")]
+        public bool Enabled { get; set; }
     }
 }
