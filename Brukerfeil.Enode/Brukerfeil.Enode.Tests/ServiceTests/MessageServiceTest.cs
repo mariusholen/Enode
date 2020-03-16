@@ -31,7 +31,7 @@ namespace Brukerfeil.Enode.Tests.ServiceTests
             var actual = messageService.LatestStatus(messageServiceTestObject());
 
             //Assert
-            Assert.IsType<List<Message>>(actual);
+            Assert.IsType<List<DifiMessage>>(actual);
         }
 
         [Fact]
@@ -67,11 +67,11 @@ namespace Brukerfeil.Enode.Tests.ServiceTests
             }
         }
 
-        public IEnumerable<Message> messageServiceTestObject()
+        public IEnumerable<DifiMessage> messageServiceTestObject()
         {
-            var message = new List<Message>
+            var message = new List<DifiMessage>
             {
-                new Message
+                new DifiMessage
                 {
                     latestMessageStatus = null,
                     messageStatuses = new List<MessageStatuses>

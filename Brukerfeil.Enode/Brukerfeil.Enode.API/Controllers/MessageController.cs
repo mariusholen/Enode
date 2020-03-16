@@ -16,7 +16,7 @@ namespace Brukerfeil.Enode.API.Controllers
     public class MessageController : ControllerBase
     {
         [HttpGet("in")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetAllIncomingMessagesAsync([FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
+        public async Task<ActionResult<IEnumerable<DifiMessage>>> GetAllIncomingMessagesAsync([FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace Brukerfeil.Enode.API.Controllers
         }
 
         [HttpGet("in/{organizationId}", Name = "GetOrgIncomingMessagesAync")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetOrgIncomingMessagesAsync(string organizationId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
+        public async Task<ActionResult<IEnumerable<DifiMessage>>> GetOrgIncomingMessagesAsync(string organizationId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace Brukerfeil.Enode.API.Controllers
         }
 
         [HttpGet("out")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetAllOutgoingMessagesAsync([FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
+        public async Task<ActionResult<IEnumerable<DifiMessage>>> GetAllOutgoingMessagesAsync([FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace Brukerfeil.Enode.API.Controllers
         }
 
         [HttpGet("out/{organizationId}", Name = "GetOrgOutgoingMessagesAsync")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetOrgOutgoingMessagesAsync(string organizationId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
+        public async Task<ActionResult<IEnumerable<DifiMessage>>> GetOrgOutgoingMessagesAsync(string organizationId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -111,7 +111,7 @@ namespace Brukerfeil.Enode.API.Controllers
         }
 
         [HttpGet("sender/{senderId}", Name = "GetAllMessagesBySenderIdAsync")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetAllMessagesBySenderIdAsync(string senderId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
+        public async Task<ActionResult<IEnumerable<DifiMessage>>> GetAllMessagesBySenderIdAsync(string senderId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -136,7 +136,7 @@ namespace Brukerfeil.Enode.API.Controllers
         }
 
         [HttpGet("{organizationId}/sender/{senderId}", Name = "GetOrgMessagesBySenderIdAsync")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetOrgMessagesBySenderIdAsync(string senderId, string organizationId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
+        public async Task<ActionResult<IEnumerable<DifiMessage>>> GetOrgMessagesBySenderIdAsync(string senderId, string organizationId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -163,7 +163,7 @@ namespace Brukerfeil.Enode.API.Controllers
         }
 
         [HttpGet("receiver/{receiverId}", Name = "GetAllMessagesByReceiverIdAsync")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetAllMessagesByReceiverIdAsync(string receiverId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
+        public async Task<ActionResult<IEnumerable<DifiMessage>>> GetAllMessagesByReceiverIdAsync(string receiverId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -189,7 +189,7 @@ namespace Brukerfeil.Enode.API.Controllers
         }
 
         [HttpGet("{organizationId}/receiver/{receiverId}", Name = "GetOrgMessagesByReceiverIdAsync")]
-        public async Task<ActionResult<IEnumerable<Message>>> GetOrgMessagesByReceiverIdAsync(string receiverId, string organizationId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
+        public async Task<ActionResult<IEnumerable<DifiMessage>>> GetOrgMessagesByReceiverIdAsync(string receiverId, string organizationId, [FromServices] IMessageRepository messageRepository, [FromServices] ISortingService service, [FromServices] IMessageService message)
         {
             try
             {
@@ -217,7 +217,7 @@ namespace Brukerfeil.Enode.API.Controllers
 
         [HttpGet("elements/in")]
 
-        public async Task<ActionResult<IEnumerable<SenderRecipient>>> GetAllIncmoingElementsMessagesAsync(
+        public async Task<ActionResult<IEnumerable<ElementsMessage>>> GetAllIncmoingElementsMessagesAsync(
             [FromServices] IElementsMessageRepository elementsMessageRepository,
             [FromServices] IElementsValidationService service)
         {
@@ -241,7 +241,7 @@ namespace Brukerfeil.Enode.API.Controllers
 
         [HttpGet("elements/out")]
 
-        public async Task<ActionResult<IEnumerable<SenderRecipient>>> GetAllOutgoingElementsMessagesAsync(
+        public async Task<ActionResult<IEnumerable<ElementsMessage>>> GetAllOutgoingElementsMessagesAsync(
                 [FromServices] IElementsMessageRepository elementsMessageRepository,
                 [FromServices] IElementsValidationService service)
         {

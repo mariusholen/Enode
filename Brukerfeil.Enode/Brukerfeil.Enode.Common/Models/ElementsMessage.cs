@@ -1,35 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Brukerfeil.Enode.Common.Models
 {
-    public class Message
+    public class ElementsMessageContent
     {
-        public IEnumerable<DifiElements> value { get; set; }
+        public string odatacontext { get; set; }
+        public IEnumerable<ElementsMessage> value { get; set; }
     }
 
-    public class DifiElements
+    public class ElementsMessage
     {
-        public int RegistryEntryId { get; set; }
+        public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
         public object IsRead { get; set; }
         public string ConversationId { get; set; }
-        public string conversationId { get; set; }
-        public string messageId { get; set; }
-        public string senderIdentifier { get; set; }
-        public string receiverIdentifier { get; set; }
-        public DateTime lastUpdate { get; set; }
-        public string direction { get; set; }
-        public string serviceIdentifier { get; set; }
-        public string latestMessageStatus { get; set; }
-        public DateTime created { get; set; }
-        public IEnumerable<SendingMethods> sendingMethods { get; set; }
-        public IEnumerable<SendingStatuses> sendingStatuses { get; set; }
-        public IEnumerable<DifiMessageStatuses> messageStatuses { get; set; }
+        public IEnumerable<SendingMethod> sendingMethod { get; set; }
+        public IEnumerable<SendingStatus> sendingStatuses { get; set; }
     }
 
-    public class SendingMethods
+    public class SendingMethod
     {
         public string Id { get; set; }
         public string Description { get; set; }
@@ -50,7 +40,7 @@ namespace Brukerfeil.Enode.Common.Models
         public object Operation { get; set; }
     }
 
-    public class SendingStatuses
+    public class SendingStatus
     {
         public string Id { get; set; }
         public string Description { get; set; }
@@ -65,10 +55,4 @@ namespace Brukerfeil.Enode.Common.Models
         public object Operation { get; set; }
     }
 
-    public class DifiMessageStatuses
-    {
-        public int id { get; set; }
-        public DateTime lastUpdate { get; set; }
-        public string status { get; set; }
-    }
 }

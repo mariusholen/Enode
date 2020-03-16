@@ -19,7 +19,7 @@ namespace Brukerfeil.Enode.Repositories
             Client = client;
         }
 
-        public async Task<IEnumerable<SenderRecipient>> GetAllIncomingElementsMessagesAsync()
+        public async Task<IEnumerable<ElementsMessage>> GetAllIncomingElementsMessagesAsync()
         {
             var thisDate = DateTime.UtcNow;
             var dateString = thisDate.ToString("O");
@@ -38,7 +38,7 @@ namespace Brukerfeil.Enode.Repositories
             if (response.IsSuccessStatusCode)
             {
                 var responseStream = await response.Content.ReadAsStringAsync();
-                var senderRecipient = JsonConvert.DeserializeObject<SenderRecipientContent>(responseStream);
+                var senderRecipient = JsonConvert.DeserializeObject<ElementsMessageContent>(responseStream);
                 return senderRecipient.value;
 
             }
@@ -50,7 +50,7 @@ namespace Brukerfeil.Enode.Repositories
 
         }
 
-        public async Task<IEnumerable<SenderRecipient>> GetAllOutgoingElementsMessagesAsync()
+        public async Task<IEnumerable<ElementsMessage>> GetAllOutgoingElementsMessagesAsync()
         {
             var thisDate = DateTime.UtcNow;
             var dateString = thisDate.ToString("O");
@@ -66,7 +66,7 @@ namespace Brukerfeil.Enode.Repositories
             if (response.IsSuccessStatusCode)
             {
                 var responseStream = await response.Content.ReadAsStringAsync();
-                dynamic senderRecipient = JsonConvert.DeserializeObject<SenderRecipientContent>(responseStream);
+                dynamic senderRecipient = JsonConvert.DeserializeObject<ElementsMessageContent>(responseStream);
                 return senderRecipient.value;
             }
             else

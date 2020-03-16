@@ -5,6 +5,6 @@ namespace Brukerfeil.Enode.Common.Services
 {
     public interface ISortingService
     {
-        public IEnumerable<Message> SortMessages(IEnumerable<Message> message);
+        public IEnumerable<DifiMessage> SortMessages(IEnumerable<DifiMessage> message);
     }
 }

@@ -8,7 +8,7 @@ namespace Brukerfeil.Enode.Services
     public class SortingService : ISortingService
     {
         //Sorts newest to oldest, takes a (unsorted)list and returns a list sorted by datetime on lastUpdate field.
-        public IEnumerable<Message> SortMessages(IEnumerable<Message> message)
+        public IEnumerable<DifiMessage> SortMessages(IEnumerable<DifiMessage> message)
         {
                 var sortedList = message.OrderByDescending(x => x.lastUpdate);
 

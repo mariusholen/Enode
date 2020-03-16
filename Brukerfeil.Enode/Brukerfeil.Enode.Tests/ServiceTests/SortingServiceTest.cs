@@ -9,17 +9,17 @@ namespace Brukerfeil.Enode.Tests.ServiceTests
 {
     public class SortingServiceTest
     {
-        private Message _message1 { get; set; }
-        private Message _message2 { get; set; }
+        private DifiMessage _message1 { get; set; }
+        private DifiMessage _message2 { get; set; }
 
         public SortingServiceTest()
         {
-            _message1 = new Message
+            _message1 = new DifiMessage
             {
                 lastUpdate = DateTime.Parse("2020-02-04T22:22:25.061+01:00")
             };
 
-            _message2 = new Message
+            _message2 = new DifiMessage
             {
                 lastUpdate = DateTime.Parse("2020-02-03T22:22:25.061+01:00")
             };
@@ -48,7 +48,7 @@ namespace Brukerfeil.Enode.Tests.ServiceTests
             var actual = sortingService.SortMessages(GetMessageObject());
 
             //Assert
-            Assert.IsType<List<Message>>(actual);
+            Assert.IsType<List<DifiMessage>>(actual);
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace Brukerfeil.Enode.Tests.ServiceTests
             //Arrange
             var sortingService = new SortingService();
 
-            var expected = new List<Message>()
+            var expected = new List<DifiMessage>()
             {
                 _message1, _message2
             };
@@ -71,9 +71,9 @@ namespace Brukerfeil.Enode.Tests.ServiceTests
 
         }
 
-        private IEnumerable<Message> GetMessageObject()
+        private IEnumerable<DifiMessage> GetMessageObject()
         {
-            var messageArray = new List<Message>()
+            var messageArray = new List<DifiMessage>()
             {
                 _message2, _message1
             };

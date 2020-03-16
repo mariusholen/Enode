@@ -44,7 +44,7 @@ namespace Brukerfeil.Enode.API
             services.AddTransient<ISortingService, SortingService>();
             services.AddTransient<IMessageService, MessageService>();
             services.AddHttpClient<IElementsMessageRepository, ElementsMessageRepository>();
-            services.AddTransient<IElementsValidationService, ElementsValidationService>();
+            //services.AddTransient<IElementsValidationService, ElementsValidationService>();
 
         }
 

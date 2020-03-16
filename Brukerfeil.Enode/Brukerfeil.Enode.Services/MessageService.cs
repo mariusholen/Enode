@@ -8,7 +8,7 @@ namespace Brukerfeil.Enode.Services
 {
     public class MessageService : IMessageService
     {
-        public IEnumerable<Message> LatestStatus(IEnumerable<Message> messages)
+        public IEnumerable<DifiMessage> LatestStatus(IEnumerable<DifiMessage> messages)
         {
             foreach (var message in messages)
             {

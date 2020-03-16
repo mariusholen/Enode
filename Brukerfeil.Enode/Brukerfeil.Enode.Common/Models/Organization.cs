@@ -1,24 +1,22 @@
-﻿using System.Collections.Generic;
+﻿
 
 namespace Brukerfeil.Enode.Common.Models
 {
-    public class OrganizationContent
-    {
-        public IEnumerable<Organization> Content { get; set; }
-    }
-
     public class Organization
     {
-        public int OrgId { get; set; }
 
-        public string OrgName { get; set; }
+        public string OrganizationName { get; set; }
 
-        public IEnumerable<Tenant> Tenant { get; set; }
+        public string Username { get; set; }
 
-    }
-    public class Tenant
-    {
+        public string Password { get; set; }
 
-        public string TenantName { get; set; }
+        public string IntegrationPoint { get; set; }
+
+        public string ElementsNcore { get; set; }
+
+        public string Tenant { get; set; }
+
+        public bool Enabled { get; set; }
     }
 }

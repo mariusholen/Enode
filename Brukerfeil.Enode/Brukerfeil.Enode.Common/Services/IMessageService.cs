@@ -5,6 +5,6 @@ namespace Brukerfeil.Enode.Common.Services
 {
     public interface IMessageService
     {
-        public IEnumerable<Message> LatestStatus(IEnumerable<Message> message);
+        public IEnumerable<DifiMessage> LatestStatus(IEnumerable<DifiMessage> message);
     }
 }

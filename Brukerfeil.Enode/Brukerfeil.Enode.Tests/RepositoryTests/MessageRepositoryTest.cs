@@ -188,7 +188,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageHandler.VerifyAll();
             foreach (var message in actual)
             {
-                Assert.IsType<Message>(message);
+                Assert.IsType<DifiMessage>(message);
             }
             
         }
@@ -225,7 +225,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageHandler.VerifyAll();
             foreach (var message in actual)
             {
-                Assert.IsType<Message>(message);
+                Assert.IsType<DifiMessage>(message);
             }
 
         }
@@ -260,7 +260,7 @@ namespace Brukerfeil.Enode.Tests
 
             foreach (var message in actual)
             {
-                Assert.IsType<Message>(message);
+                Assert.IsType<DifiMessage>(message);
             }
         }
 
@@ -295,7 +295,7 @@ namespace Brukerfeil.Enode.Tests
 
             foreach (var message in actual)
             {
-                Assert.IsType<Message>(message);
+                Assert.IsType<DifiMessage>(message);
             }
         }
 
@@ -635,7 +635,7 @@ namespace Brukerfeil.Enode.Tests
 
             //Assert
             mockMessageHandler.VerifyAll();
-            Assert.IsType<List<Message>>(actual);
+            Assert.IsType<List<DifiMessage>>(actual);
         }
 
         [Fact]
@@ -740,7 +740,7 @@ namespace Brukerfeil.Enode.Tests
 
             //Assert
             mockMessageHandler.VerifyAll();
-            Assert.IsType<List<Message>>(actual);
+            Assert.IsType<List<DifiMessage>>(actual);
         }
 
         [Fact]
@@ -845,7 +845,7 @@ namespace Brukerfeil.Enode.Tests
 
             //Assert
             mockMessageHandler.VerifyAll();
-            Assert.IsType<List<Message>>(actual);
+            Assert.IsType<List<DifiMessage>>(actual);
         }
 
         [Fact]
@@ -993,7 +993,7 @@ namespace Brukerfeil.Enode.Tests
 
             //Assert
             mockMessageHandler.VerifyAll();
-            Assert.IsType<List<Message>>(actual);
+            Assert.IsType<List<DifiMessage>>(actual);
         }
 
         [Fact]

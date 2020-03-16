@@ -24,13 +24,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
             //Act
@@ -40,7 +40,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetAllIncomingMessagesAsync(), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
             Assert.NotNull(actual);
         }
@@ -58,13 +58,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -75,7 +75,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetOrgIncomingMessagesAsync(receiverIdentifier), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
             Assert.NotNull(actual);
 
@@ -93,13 +93,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -110,7 +110,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetAllOutgoingMessagesAsync(), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
             Assert.NotNull(actual);
 
@@ -129,13 +129,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -146,7 +146,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetOrgOutgoingMessagesAsync(senderIdentifier), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
             Assert.NotNull(actual);
 
@@ -163,13 +163,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -180,9 +180,9 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetAllIncomingMessagesAsync(), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
-            Assert.IsType<ActionResult<IEnumerable<Message>>>(actual);
+            Assert.IsType<ActionResult<IEnumerable<DifiMessage>>>(actual);
         }
 
         [Fact]
@@ -198,13 +198,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -215,9 +215,9 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetOrgIncomingMessagesAsync(receiverIdentifier), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
-            Assert.IsType<ActionResult<IEnumerable<Message>>>(actual);
+            Assert.IsType<ActionResult<IEnumerable<DifiMessage>>>(actual);
 
         }
 
@@ -233,13 +233,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -250,9 +250,9 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetAllOutgoingMessagesAsync(), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
-            Assert.IsType<ActionResult<IEnumerable<Message>>>(actual);
+            Assert.IsType<ActionResult<IEnumerable<DifiMessage>>>(actual);
 
         }
 
@@ -269,13 +269,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -286,9 +286,9 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetOrgOutgoingMessagesAsync(senderIdentifier), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
-            Assert.IsType<ActionResult<IEnumerable<Message>>>(actual);
+            Assert.IsType<ActionResult<IEnumerable<DifiMessage>>>(actual);
 
         }
 
@@ -305,13 +305,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
             var expectedDirection = "INCOMING";
@@ -323,7 +323,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(e => e.GetAllIncomingMessagesAsync(), Times.Once());
-            mockSortingService.Verify(e => e.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(e => e.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
             foreach (var message in actual.Value)
             {
@@ -345,13 +345,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
             var expectedDirection = "INCOMING";
@@ -363,7 +363,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(e => e.GetOrgIncomingMessagesAsync(receiverIdentifier), Times.Once());
-            mockSortingService.Verify(e => e.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(e => e.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
             foreach (var message in actual.Value)
             {
@@ -383,13 +383,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
             var expectedDirection = "OUTGOING";
@@ -402,7 +402,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetAllOutgoingMessagesAsync(), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
             foreach (var message in actual.Value)
             {
@@ -423,13 +423,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
             var expectedDirection = "OUTGOING";
@@ -442,7 +442,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetOrgOutgoingMessagesAsync(senderIdentifier), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
             foreach (var message in actual.Value)
             {
@@ -464,13 +464,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -481,7 +481,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(e => e.GetOrgIncomingMessagesAsync(receiverIdentifier), Times.Once());
-            mockSortingService.Verify(e => e.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(e => e.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
             foreach (var message in actual.Value)
             {
@@ -502,13 +502,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -519,7 +519,7 @@ namespace Brukerfeil.Enode.Tests
             mockMessageRepository.VerifyAll();
             mockSortingService.VerifyAll();
             mockMessageRepository.Verify(c => c.GetOrgOutgoingMessagesAsync(senderIdentifier), Times.Once());
-            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<Message>>()), Times.Once());
+            mockSortingService.Verify(service => service.SortMessages(It.IsAny<List<DifiMessage>>()), Times.Once());
 
             foreach (var message in actual.Value)
             {
@@ -540,13 +540,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -572,13 +572,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -591,7 +591,7 @@ namespace Brukerfeil.Enode.Tests
 
             foreach (var message in actual.Value)
             {
-                Assert.IsType<Message>(message);
+                Assert.IsType<DifiMessage>(message);
             }
 
         }
@@ -609,13 +609,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -644,13 +644,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -676,13 +676,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -695,7 +695,7 @@ namespace Brukerfeil.Enode.Tests
 
             foreach (var message in actual.Value)
             {
-                Assert.IsType<Message>(message);
+                Assert.IsType<DifiMessage>(message);
             }
 
         }
@@ -714,13 +714,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -750,13 +750,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -783,13 +783,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -802,7 +802,7 @@ namespace Brukerfeil.Enode.Tests
 
             foreach (var message in actual.Value)
             {
-                Assert.IsType<Message>(message);
+                Assert.IsType<DifiMessage>(message);
             }
         }
 
@@ -820,13 +820,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -856,13 +856,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -892,13 +892,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -925,13 +925,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -941,7 +941,7 @@ namespace Brukerfeil.Enode.Tests
             //Assert
             mockMessageRepository.Verify(e => e.GetOrgMessagesByReceiverIdAsync(receiverId, organizationId), Times.Once());
             mockMessageRepository.VerifyAll();
-            Assert.IsType<ActionResult<IEnumerable<Message>>>(actual);
+            Assert.IsType<ActionResult<IEnumerable<DifiMessage>>>(actual);
         }
 
 
@@ -959,13 +959,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -995,13 +995,13 @@ namespace Brukerfeil.Enode.Tests
 
             var mockSortingService = new Mock<ISortingService>();
             mockSortingService.Setup(service =>
-            service.SortMessages(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.SortMessages(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var mockMessageService = new Mock<IMessageService>();
             mockMessageService.Setup(service =>
-            service.LatestStatus(It.IsAny<List<Message>>()))
-                .Returns<List<Message>>(m => m);
+            service.LatestStatus(It.IsAny<List<DifiMessage>>()))
+                .Returns<List<DifiMessage>>(m => m);
 
             var messageController = new MessageController();
 
@@ -1017,196 +1017,196 @@ namespace Brukerfeil.Enode.Tests
             }
         }
 
-        [Fact]
-        public async void TestGetAllIncmoingElementsMessagesNotNullAsync()
+        //    [Fact]
+        //    public async void TestGetAllIncmoingElementsMessagesNotNullAsync()
+        //    {
+        //        //Arrange
+        //        var mockElementsRepository = new Mock<IElementsMessageRepository>();
+
+        //        mockElementsRepository.Setup(repository =>
+        //        repository.GetAllIncomingElementsMessagesAsync())
+        //        .ReturnsAsync(GetIncomingElementsMessagesObject());
+
+        //        var mockElementsValidationService = new Mock<IElementsValidationService>();
+        //        mockElementsValidationService.Setup(service =>
+        //        service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()))
+        //              .Returns<List<SenderRecipient>>(m => m);
+
+        //        var messageController = new MessageController();
+        //        //Act
+        //        var actual = await messageController.GetAllIncmoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsValidationService.Object);
+
+        //        //Assert
+        //        mockElementsRepository.VerifyAll();
+        //        mockElementsValidationService.VerifyAll();
+        //        mockElementsRepository.Verify(c => c.GetAllIncomingElementsMessagesAsync(), Times.Once());
+        //        mockElementsValidationService.Verify(service => service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()), Times.Once());
+
+        //        Assert.NotNull(actual);
+
+        //    }
+
+        //    [Fact]
+        //    public async void TestAllIncmoingElementsMessagesTypesAsync()
+        //    {
+        //        //Arrange
+        //        var mockElementsRepository = new Mock<IElementsMessageRepository>();
+
+        //        mockElementsRepository.Setup(repository =>
+        //        repository.GetAllIncomingElementsMessagesAsync())
+        //        .ReturnsAsync(GetIncomingElementsMessagesObject());
+
+        //        var mockElementsValidationService = new Mock<IElementsValidationService>();
+        //        mockElementsValidationService.Setup(service =>
+        //        service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()))
+        //              .Returns<List<SenderRecipient>>(m => m);
+
+        //        var messageController = new MessageController();
+        //        //Act
+        //        var actual = await messageController.GetAllIncmoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsValidationService.Object);
+
+        //        //Assert
+        //        mockElementsRepository.VerifyAll();
+        //        mockElementsValidationService.VerifyAll();
+        //        mockElementsRepository.Verify(c => c.GetAllIncomingElementsMessagesAsync(), Times.Once());
+        //        mockElementsValidationService.Verify(service => service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()), Times.Once());
+
+
+        //        foreach (var message in actual.Value)
+        //        {
+        //            Assert.IsType<SenderRecipient>(message);
+        //        }
+        //    }
+
+        //    [Fact]
+        //    public async void TestGetAllIncomingElementsMessagesDirectionAsync()
+        //    {
+        //        //Arrange
+        //        var mockElementsRepository = new Mock<IElementsMessageRepository>();
+
+        //        mockElementsRepository.Setup(repository =>
+        //        repository.GetAllIncomingElementsMessagesAsync())
+        //        .ReturnsAsync(GetIncomingElementsMessagesObject());
+
+        //        var mockElementsValidationService = new Mock<IElementsValidationService>();
+        //        mockElementsValidationService.Setup(service =>
+        //        service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()))
+        //              .Returns<List<SenderRecipient>>(m => m);
+
+        //        var messageController = new MessageController();
+
+        //        //Act
+        //        var actual = await messageController.GetAllIncmoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsValidationService.Object);
+
+        //        //Assert
+        //        mockElementsRepository.VerifyAll();
+        //        mockElementsValidationService.VerifyAll();
+        //        mockElementsRepository.Verify(c => c.GetAllIncomingElementsMessagesAsync(), Times.Once());
+        //        mockElementsValidationService.Verify(service => service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()), Times.Once());
+
+        //        foreach (var elementsMessage in actual.Value)
+        //        {
+        //            Assert.True(elementsMessage.IsRecipient);
+        //        }
+        //    }
+
+        //    [Fact]
+        //    public async void TestGetAllOutgoingElementsMessagesNotNullAsync()
+        //    {
+        //        //Arrange   
+        //        var mockElementsRepository = new Mock<IElementsMessageRepository>();
+
+        //        mockElementsRepository.Setup(repository =>
+        //        repository.GetAllOutgoingElementsMessagesAsync())
+        //        .ReturnsAsync(GetOutgoingElementsMessagesObject());
+
+        //        var mockElementsValidationService = new Mock<IElementsValidationService>();
+        //        mockElementsValidationService.Setup(service =>
+        //        service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>()))
+        //              .Returns<List<SenderRecipient>>(m => m);
+
+        //        var messageController = new MessageController();
+        //        //Act
+        //        var actual = await messageController.GetAllOutgoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsValidationService.Object);
+
+        //        //Assert
+        //        mockElementsRepository.VerifyAll();
+        //        mockElementsValidationService.VerifyAll();
+        //        mockElementsRepository.Verify(c => c.GetAllOutgoingElementsMessagesAsync(), Times.Once());
+        //        mockElementsValidationService.Verify(service => service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>())); Times.Once();
+
+        //        Assert.NotNull(actual);
+
+        //    }
+
+        //    [Fact]
+        //    public async void TestAllOutgoingElementsMessagesTypeAsync()
+        //    {
+        //        //Arrange
+        //        var mockElementsRepository = new Mock<IElementsMessageRepository>();
+
+        //        mockElementsRepository.Setup(repository =>
+        //        repository.GetAllOutgoingElementsMessagesAsync())
+        //        .ReturnsAsync(GetOutgoingElementsMessagesObject());
+
+        //        var mockElementsValidationService = new Mock<IElementsValidationService>();
+        //        mockElementsValidationService.Setup(service =>
+        //        service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>()))
+        //              .Returns<List<SenderRecipient>>(m => m);
+
+        //        var messageController = new MessageController();
+        //        //Act
+        //        var actual = await messageController.GetAllOutgoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsValidationService.Object);
+
+        //        //Assert
+        //        mockElementsRepository.VerifyAll();
+        //        mockElementsValidationService.VerifyAll();
+        //        mockElementsRepository.Verify(c => c.GetAllOutgoingElementsMessagesAsync(), Times.Once());
+        //        mockElementsValidationService.Verify(service => service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>()));
+
+        //        foreach (var message in actual.Value)
+        //        {
+        //            Assert.IsType<SenderRecipient>(message);
+        //        }
+        //    }
+
+        //    [Fact]
+        //    public async void TestGetAllOutgoingElementsMessagesDirectionAsync()
+        //    {
+        //        //Arrange
+        //        var mockElementsRepository = new Mock<IElementsMessageRepository>();
+
+        //        mockElementsRepository.Setup(repository =>
+        //        repository.GetAllOutgoingElementsMessagesAsync())
+        //        .ReturnsAsync(GetOutgoingElementsMessagesObject());
+
+        //        var mockElementsSortingService = new Mock<IElementsValidationService>();
+        //        mockElementsSortingService.Setup(service =>
+        //        service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>()))
+        //              .Returns<List<SenderRecipient>>(m => m);
+
+        //        var messageController = new MessageController();
+        //        //Act
+        //        var actual = await messageController.GetAllOutgoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsSortingService.Object);
+
+        //        //Assert
+        //        mockElementsRepository.VerifyAll();
+        //        mockElementsSortingService.VerifyAll();
+        //        mockElementsRepository.Verify(c => c.GetAllOutgoingElementsMessagesAsync(), Times.Once());
+        //        mockElementsSortingService.Verify(service => service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>()), Times.Once());
+
+
+        //        foreach (var elementsMessage in actual.Value)
+        //        {
+        //            Assert.False(elementsMessage.IsRecipient);
+        //        }
+        //    }
+
+        private IEnumerable<DifiMessage> GetIncomingMessageObject()
         {
-            //Arrange
-            var mockElementsRepository = new Mock<IElementsMessageRepository>();
-
-            mockElementsRepository.Setup(repository =>
-            repository.GetAllIncomingElementsMessagesAsync())
-            .ReturnsAsync(GetIncomingElementsMessagesObject());
-
-            var mockElementsValidationService = new Mock<IElementsValidationService>();
-            mockElementsValidationService.Setup(service =>
-            service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()))
-                  .Returns<List<SenderRecipient>>(m => m);
-
-            var messageController = new MessageController();
-            //Act
-            var actual = await messageController.GetAllIncmoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsValidationService.Object);
-
-            //Assert
-            mockElementsRepository.VerifyAll();
-            mockElementsValidationService.VerifyAll();
-            mockElementsRepository.Verify(c => c.GetAllIncomingElementsMessagesAsync(), Times.Once());
-            mockElementsValidationService.Verify(service => service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()), Times.Once());
-
-            Assert.NotNull(actual);
-
-        }
-
-        [Fact]
-        public async void TestAllIncmoingElementsMessagesTypesAsync()
-        {
-            //Arrange
-            var mockElementsRepository = new Mock<IElementsMessageRepository>();
-
-            mockElementsRepository.Setup(repository =>
-            repository.GetAllIncomingElementsMessagesAsync())
-            .ReturnsAsync(GetIncomingElementsMessagesObject());
-
-            var mockElementsValidationService = new Mock<IElementsValidationService>();
-            mockElementsValidationService.Setup(service =>
-            service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()))
-                  .Returns<List<SenderRecipient>>(m => m);
-
-            var messageController = new MessageController();
-            //Act
-            var actual = await messageController.GetAllIncmoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsValidationService.Object);
-
-            //Assert
-            mockElementsRepository.VerifyAll();
-            mockElementsValidationService.VerifyAll();
-            mockElementsRepository.Verify(c => c.GetAllIncomingElementsMessagesAsync(), Times.Once());
-            mockElementsValidationService.Verify(service => service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()), Times.Once());
-
-            
-            foreach (var message in actual.Value)
+            var incomingMessage = new List<DifiMessage>
             {
-                Assert.IsType<SenderRecipient>(message);
-            }
-        }
-
-        [Fact]
-        public async void TestGetAllIncomingElementsMessagesDirectionAsync()
-        {
-            //Arrange
-            var mockElementsRepository = new Mock<IElementsMessageRepository>();
-
-            mockElementsRepository.Setup(repository =>
-            repository.GetAllIncomingElementsMessagesAsync())
-            .ReturnsAsync(GetIncomingElementsMessagesObject());
-
-            var mockElementsValidationService = new Mock<IElementsValidationService>();
-            mockElementsValidationService.Setup(service =>
-            service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()))
-                  .Returns<List<SenderRecipient>>(m => m);
-
-            var messageController = new MessageController();
-
-            //Act
-            var actual = await messageController.GetAllIncmoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsValidationService.Object);
-
-            //Assert
-            mockElementsRepository.VerifyAll();
-            mockElementsValidationService.VerifyAll();
-            mockElementsRepository.Verify(c => c.GetAllIncomingElementsMessagesAsync(), Times.Once());
-            mockElementsValidationService.Verify(service => service.ValidateElementsIncomingMessages(It.IsAny<List<SenderRecipient>>()), Times.Once());
-
-            foreach (var elementsMessage in actual.Value)
-            {
-                Assert.True(elementsMessage.IsRecipient);
-            }
-        }
-
-        [Fact]
-        public async void TestGetAllOutgoingElementsMessagesNotNullAsync()
-        {
-            //Arrange   
-            var mockElementsRepository = new Mock<IElementsMessageRepository>();
-
-            mockElementsRepository.Setup(repository =>
-            repository.GetAllOutgoingElementsMessagesAsync())
-            .ReturnsAsync(GetOutgoingElementsMessagesObject());
-
-            var mockElementsValidationService = new Mock<IElementsValidationService>();
-            mockElementsValidationService.Setup(service =>
-            service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>()))
-                  .Returns<List<SenderRecipient>>(m => m);
-
-            var messageController = new MessageController();
-            //Act
-            var actual = await messageController.GetAllOutgoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsValidationService.Object);
-
-            //Assert
-            mockElementsRepository.VerifyAll();
-            mockElementsValidationService.VerifyAll();
-            mockElementsRepository.Verify(c => c.GetAllOutgoingElementsMessagesAsync(), Times.Once());
-            mockElementsValidationService.Verify(service => service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>())); Times.Once();
-
-            Assert.NotNull(actual);
-
-        }
-
-        [Fact]
-        public async void TestAllOutgoingElementsMessagesTypeAsync()
-        {
-            //Arrange
-            var mockElementsRepository = new Mock<IElementsMessageRepository>();
-
-            mockElementsRepository.Setup(repository =>
-            repository.GetAllOutgoingElementsMessagesAsync())
-            .ReturnsAsync(GetOutgoingElementsMessagesObject());
-
-            var mockElementsValidationService = new Mock<IElementsValidationService>();
-            mockElementsValidationService.Setup(service =>
-            service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>()))
-                  .Returns<List<SenderRecipient>>(m => m);
-
-            var messageController = new MessageController();
-            //Act
-            var actual = await messageController.GetAllOutgoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsValidationService.Object);
-
-            //Assert
-            mockElementsRepository.VerifyAll();
-            mockElementsValidationService.VerifyAll();
-            mockElementsRepository.Verify(c => c.GetAllOutgoingElementsMessagesAsync(), Times.Once());
-            mockElementsValidationService.Verify(service => service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>()));
-            
-            foreach (var message in actual.Value)
-            {
-                Assert.IsType<SenderRecipient>(message);
-            }
-        }
-
-        [Fact]
-        public async void TestGetAllOutgoingElementsMessagesDirectionAsync()
-        {
-            //Arrange
-            var mockElementsRepository = new Mock<IElementsMessageRepository>();
-
-            mockElementsRepository.Setup(repository =>
-            repository.GetAllOutgoingElementsMessagesAsync())
-            .ReturnsAsync(GetOutgoingElementsMessagesObject());
-
-            var mockElementsSortingService = new Mock<IElementsValidationService>();
-            mockElementsSortingService.Setup(service =>
-            service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>()))
-                  .Returns<List<SenderRecipient>>(m => m);
-
-            var messageController = new MessageController();
-            //Act
-            var actual = await messageController.GetAllOutgoingElementsMessagesAsync(mockElementsRepository.Object, mockElementsSortingService.Object);
-
-            //Assert
-            mockElementsRepository.VerifyAll();
-            mockElementsSortingService.VerifyAll();
-            mockElementsRepository.Verify(c => c.GetAllOutgoingElementsMessagesAsync(), Times.Once());
-            mockElementsSortingService.Verify(service => service.ValidateElementsOutgoingMessages(It.IsAny<List<SenderRecipient>>()), Times.Once());
-
-
-            foreach (var elementsMessage in actual.Value)
-            {
-                Assert.False(elementsMessage.IsRecipient);
-            }
-        }
-
-        private IEnumerable<Message> GetIncomingMessageObject()
-        {
-            var incomingMessage = new List<Message>
-            {
-                new Message
+                new DifiMessage
                 {
                     lastUpdate = DateTime.Now,
                     receiverIdentifier = "987464291",
@@ -1217,12 +1217,12 @@ namespace Brukerfeil.Enode.Tests
             return incomingMessage;
         }
 
-        private IEnumerable<Message> GetOutgoingMessageObject()
+        private IEnumerable<DifiMessage> GetOutgoingMessageObject()
         {
 
-            var outgoingMessage = new List<Message>
+            var outgoingMessage = new List<DifiMessage>
             {
-                new Message
+                new DifiMessage
                 {
                     lastUpdate = DateTime.Now,
                     senderIdentifier = "989778471",
@@ -1232,19 +1232,19 @@ namespace Brukerfeil.Enode.Tests
             return outgoingMessage;
         }
 
-        private List<Message> GetMessageObject()
+        private List<DifiMessage> GetMessageObject()
         {
 
-            var messageObject = new List<Message>
+            var messageObject = new List<DifiMessage>
             {
-                new Message
+                new DifiMessage
                 {
                     id = 11,
                     conversationId = "40c8ccb8-aed8-4e1f-b87e-e27c0895813d",
                     senderIdentifier = "987464291",
                     receiverIdentifier = "989778471",
                 },
-                new Message
+                new DifiMessage
                 {
                     id = 22,
                     conversationId = "40c8ccb8-aed8-4e1f-b87e-e27c0895813d",
@@ -1255,35 +1255,35 @@ namespace Brukerfeil.Enode.Tests
             return messageObject;
         }
 
-        private IEnumerable<SenderRecipient> GetIncomingElementsMessagesObject()
-        {
-            var incomingElementsMessage = new List<SenderRecipient>
-            {
-                new SenderRecipient
-                {
-                    Id = 100,
-                    IsRecipient = true,
-                    ConversationId = "4c0e6147-8971-4c8a-8936-3daec08d82d6",
-                    CreatedDate = DateTime.Now,
-                }
-            };
+        //    private IEnumerable<SenderRecipient> GetIncomingElementsMessagesObject()
+        //    {
+        //        var incomingElementsMessage = new List<SenderRecipient>
+        //        {
+        //            new SenderRecipient
+        //            {
+        //                Id = 100,
+        //                IsRecipient = true,
+        //                ConversationId = "4c0e6147-8971-4c8a-8936-3daec08d82d6",
+        //                CreatedDate = DateTime.Now,
+        //            }
+        //        };
 
-            return incomingElementsMessage;
-        }
-        private IEnumerable<SenderRecipient> GetOutgoingElementsMessagesObject()
-        {
-            var outgoingElementsMessage = new List<SenderRecipient>
-            {
-                new SenderRecipient
-                {
-                    Id = 200,
-                    IsRecipient = false,
-                    ConversationId = "e1708df4-fdcf-42ac-b401-2bf92d1ed8bc",
-                    CreatedDate = DateTime.Now,
-                }
-            };
+        //        return incomingElementsMessage;
+        //    }
+        //    private IEnumerable<SenderRecipient> GetOutgoingElementsMessagesObject()
+        //    {
+        //        var outgoingElementsMessage = new List<SenderRecipient>
+        //        {
+        //            new SenderRecipient
+        //            {
+        //                Id = 200,
+        //                IsRecipient = false,
+        //                ConversationId = "e1708df4-fdcf-42ac-b401-2bf92d1ed8bc",
+        //                CreatedDate = DateTime.Now,
+        //            }
+        //        };
 
-            return outgoingElementsMessage;
-        }
+        //        return outgoingElementsMessage;
+        //    }
     }
 }

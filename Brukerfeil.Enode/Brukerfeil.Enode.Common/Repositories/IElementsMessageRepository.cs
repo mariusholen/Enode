@@ -6,9 +6,9 @@ namespace Brukerfeil.Enode.Common.Repositories
 {
     public interface IElementsMessageRepository
     {
-        Task<IEnumerable<SenderRecipient>> GetAllIncomingElementsMessagesAsync();
+        Task<IEnumerable<ElementsMessage>> GetAllIncomingElementsMessagesAsync();
 
-        Task<IEnumerable<SenderRecipient>> GetAllOutgoingElementsMessagesAsync();
+        Task<IEnumerable<ElementsMessage>> GetAllOutgoingElementsMessagesAsync();
 
     }
 }

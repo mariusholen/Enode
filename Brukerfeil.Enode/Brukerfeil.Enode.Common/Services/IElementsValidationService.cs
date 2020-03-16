@@ -8,9 +8,9 @@ namespace Brukerfeil.Enode.Common.Services
 {
      public interface IElementsValidationService
         {
-        public List<SenderRecipient> ValidateElementsIncomingMessages(IEnumerable<SenderRecipient> isRecipient);
+        public List<ElementsMessage> ValidateElementsIncomingMessages(IEnumerable<ElementsMessage> isRecipient);
 
-        public List<SenderRecipient> ValidateElementsOutgoingMessages(IEnumerable<SenderRecipient> isNotRecipient);
+        public List<ElementsMessage> ValidateElementsOutgoingMessages(IEnumerable<ElementsMessage> isNotRecipient);
 
     }
 }

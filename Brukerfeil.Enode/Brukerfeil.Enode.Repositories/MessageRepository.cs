@@ -20,7 +20,7 @@ namespace Brukerfeil.Enode.Repositories
             Client = client;
         }
 
-        public async Task<IEnumerable<Message>> GetAllIncomingMessagesAsync()
+        public async Task<IEnumerable<DifiMessage>> GetAllIncomingMessagesAsync()
         {
             Client.BaseAddress = new Uri(_URL);
 
@@ -31,7 +31,7 @@ namespace Brukerfeil.Enode.Repositories
             {
                 using var responseStream = await response.Content.ReadAsStreamAsync();
 
-                var message = await JsonSerializer.DeserializeAsync<MessageContent>(responseStream);
+                var message = await JsonSerializer.DeserializeAsync<DifiMessageContent>(responseStream);
                 return message.content;
             }
             else
@@ -41,7 +41,7 @@ namespace Brukerfeil.Enode.Repositories
             }
         }
 
-        public async Task<IEnumerable<Message>> GetOrgIncomingMessagesAsync(string organizationId)
+        public async Task<IEnumerable<DifiMessage>> GetOrgIncomingMessagesAsync(string organizationId)
         {
             Client.BaseAddress = new Uri(_URL);
 
@@ -52,7 +52,7 @@ namespace Brukerfeil.Enode.Repositories
             {
                 using var responseStream = await response.Content.ReadAsStreamAsync();
 
-                var message = await JsonSerializer.DeserializeAsync<MessageContent>(responseStream);
+                var message = await JsonSerializer.DeserializeAsync<DifiMessageContent>(responseStream);
                 return message.content;
 
             }
@@ -63,7 +63,7 @@ namespace Brukerfeil.Enode.Repositories
             }
         }
 
-        public async Task<IEnumerable<Message>> GetAllOutgoingMessagesAsync()
+        public async Task<IEnumerable<DifiMessage>> GetAllOutgoingMessagesAsync()
         {
             Client.BaseAddress = new Uri(_URL);
 
@@ -74,7 +74,7 @@ namespace Brukerfeil.Enode.Repositories
             {
                 using var responseStream = await response.Content.ReadAsStreamAsync();
 
-                var message = await JsonSerializer.DeserializeAsync<MessageContent>(responseStream);
+                var message = await JsonSerializer.DeserializeAsync<DifiMessageContent>(responseStream);
                 return message.content;
             }
             else
@@ -84,7 +84,7 @@ namespace Brukerfeil.Enode.Repositories
             }
         }
 
-        public async Task<IEnumerable<Message>> GetOrgOutgoingMessagesAsync(string organizationId)
+        public async Task<IEnumerable<DifiMessage>> GetOrgOutgoingMessagesAsync(string organizationId)
         {
             Client.BaseAddress = new Uri(_URL);
 
@@ -95,7 +95,7 @@ namespace Brukerfeil.Enode.Repositories
             {
                 using var responseStream = await response.Content.ReadAsStreamAsync();
 
-                var message = await JsonSerializer.DeserializeAsync<MessageContent>(responseStream);
+                var message = await JsonSerializer.DeserializeAsync<DifiMessageContent>(responseStream);
                 return message.content;
             }
             else
@@ -105,7 +105,7 @@ namespace Brukerfeil.Enode.Repositories
             }
         }
 
-        public async Task<IEnumerable<Message>> GetAllMessagesBySenderIdAsync(string senderId)
+        public async Task<IEnumerable<DifiMessage>> GetAllMessagesBySenderIdAsync(string senderId)
         {
             Client.BaseAddress = new Uri(_URL);
             var request = new HttpRequestMessage(HttpMethod.Get, $"{_URL}&senderIdentifier={senderId}");
@@ -114,7 +114,7 @@ namespace Brukerfeil.Enode.Repositories
             if (response.IsSuccessStatusCode)
             {
                 using var responseStream = await response.Content.ReadAsStreamAsync();
-                var message = await JsonSerializer.DeserializeAsync<MessageContent>(responseStream);
+                var message = await JsonSerializer.DeserializeAsync<DifiMessageContent>(responseStream);
                 return message.content;
             }
             else
@@ -124,7 +124,7 @@ namespace Brukerfeil.Enode.Repositories
             }
         }
 
-        public async Task<IEnumerable<Message>> GetOrgMessagesBySenderIdAsync(string senderId, string organizationId)
+        public async Task<IEnumerable<DifiMessage>> GetOrgMessagesBySenderIdAsync(string senderId, string organizationId)
         {
             Client.BaseAddress = new Uri(_URL);
             var request = new HttpRequestMessage(HttpMethod.Get, $"{_URL}&senderIdentifier={senderId}&receiverIdentifier={organizationId}");
@@ -133,7 +133,7 @@ namespace Brukerfeil.Enode.Repositories
             if (response.IsSuccessStatusCode)
             {
                 using var responseStream = await response.Content.ReadAsStreamAsync();
-                var message = await JsonSerializer.DeserializeAsync<MessageContent>(responseStream);
+                var message = await JsonSerializer.DeserializeAsync<DifiMessageContent>(responseStream);
                 return message.content;
             }
             else
@@ -143,7 +143,7 @@ namespace Brukerfeil.Enode.Repositories
             }
         }
 
-        public async Task<IEnumerable<Message>> GetAllMessagesByReceiverIdAsync(string receiverId)
+        public async Task<IEnumerable<DifiMessage>> GetAllMessagesByReceiverIdAsync(string receiverId)
         {
             Client.BaseAddress = new Uri(_URL);
             var request = new HttpRequestMessage(HttpMethod.Get, $"{_URL}&receiverIdentifier={receiverId}");
@@ -152,7 +152,7 @@ namespace Brukerfeil.Enode.Repositories
             if (response.IsSuccessStatusCode)
             {
                 using var responseStream = await response.Content.ReadAsStreamAsync();
-                var message = await JsonSerializer.DeserializeAsync<MessageContent>(responseStream);
+                var message = await JsonSerializer.DeserializeAsync<DifiMessageContent>(responseStream);
                 return message.content;
             }
             else
@@ -161,7 +161,7 @@ namespace Brukerfeil.Enode.Repositories
                 throw new ArgumentException(exx);
             }
         }
-        public async Task<IEnumerable<Message>> GetOrgMessagesByReceiverIdAsync(string receiverId, string organizationId)
+        public async Task<IEnumerable<DifiMessage>> GetOrgMessagesByReceiverIdAsync(string receiverId, string organizationId)
         {
             Client.BaseAddress = new Uri(_URL);
             var request = new HttpRequestMessage(HttpMethod.Get, $"{_URL}&receiverIdentifier={receiverId}&senderIdentifier={organizationId}");
@@ -170,7 +170,7 @@ namespace Brukerfeil.Enode.Repositories
             if (response.IsSuccessStatusCode)
             {
                 using var responseStream = await response.Content.ReadAsStreamAsync();
-                var message = await JsonSerializer.DeserializeAsync<MessageContent>(responseStream);
+                var message = await JsonSerializer.DeserializeAsync<DifiMessageContent>(responseStream);
                 return message.content;
             }
             else
