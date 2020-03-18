@@ -8,6 +8,11 @@ namespace Brukerfeil.Enode.Schemas
     {
         public const string Schema = "organization";
 
+        [DataMember(Name = "OrganizationId")]
+        [DefaultValue("")]
+        [Description("The id of an organization")]
+        public int OrganizationId { get; set; }
+
         [DataMember(Name = "OrganizationName")]
         [DefaultValue("")]
         [Description("The name of a specific organization")]
@@ -39,7 +44,7 @@ namespace Brukerfeil.Enode.Schemas
         public string Tenant { get; set; }
 
         [DataMember(Name = "Enabled")]
-        [DefaultValue("")]
+        [DefaultValue(false)]
         [Description("Enable reading")]
         public bool Enabled { get; set; }
     }

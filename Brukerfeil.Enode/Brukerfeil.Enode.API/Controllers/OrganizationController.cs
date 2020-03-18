@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Brukerfeil.Enode.Common.Models;
 using Brukerfeil.Enode.Common.Configurations;
+using Brukerfeil.Enode.Schemas;
 
 namespace Brukerfeil.Enode.API.Controllers
 {
@@ -17,7 +18,7 @@ namespace Brukerfeil.Enode.API.Controllers
         }
 
         [HttpGet("org")]
-        public async Task<IEnumerable<Organization>> GetOrganizationConfigsAsync()
+        public async Task<OrganizationSchema> GetOrganizationConfigsAsync()
         {
             return await _configProvider.GetOrganizationConfigsAsync();
         }

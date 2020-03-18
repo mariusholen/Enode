@@ -10,7 +10,6 @@ using Elements.ConfigServer.Client.Entities;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
 using System.IO;
-using Brukerfeil.Enode.Common.Models;
 
 namespace Brukerfeil.Enode.API.Configurations
 {
@@ -42,23 +41,24 @@ namespace Brukerfeil.Enode.API.Configurations
 
         }
 
-        public async Task<IEnumerable<Organization>> GetOrganizationConfigsAsync()
+        public async Task<OrganizationSchema> GetOrganizationConfigsAsync()
         {
             //Get 
             var scopeConfig = await _configManager.GetScopeConfigAsync();
-            return scopeConfig.OrganizationSchema as IEnumerable<Organization>;
+            return scopeConfig.OrganizationSchema;
 
         }
 
         public string GetGlobalConfiguration(string key)
         {
             return _localConfigRoot[($"appsettings:{key}")];
-        }
-    }
 
-    public class ConfigWrapper : TenantConfig
-    {
-        [JsonProperty(OrganizationSchema.Schema)]
-        public OrganizationSchema OrganizationSchema { get; set; }
+        }
+
+        public class ConfigWrapper : TenantConfig
+        {
+            [JsonProperty(OrganizationSchema.Schema)]
+            public OrganizationSchema OrganizationSchema { get; set; }
+        }
     }
 }
