@@ -14,4 +14,8 @@
     <Folder Include="Exceptions\" />
     <Folder Include="Configurations\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Brukerfeil.Enode.Schemas\Brukerfeil.Enode.Schemas.csproj" />
+  </ItemGroup>
 </Project>
