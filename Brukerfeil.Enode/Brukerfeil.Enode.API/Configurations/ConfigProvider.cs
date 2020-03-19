@@ -28,7 +28,7 @@ namespace Brukerfeil.Enode.API.Configurations
                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                    .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", optional: true, reloadOnChange: true)
                    .Build();
-
+            
             var ConfigManager = ConfigManagerFactory<ConfigWrapper>.CreateConfigManager(
                 GetGlobalConfiguration,
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.json"),
