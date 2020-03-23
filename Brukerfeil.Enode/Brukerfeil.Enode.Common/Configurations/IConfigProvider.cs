@@ -7,6 +7,6 @@ namespace Brukerfeil.Enode.Common.Configurations
 {
     public interface IConfigProvider
     {
-        Task<OrganizationSchema> GetOrganizationConfigsAsync();
+        Task<OrganizationSchema> GetOrgConfigAsync(string tenant);
     }
 }

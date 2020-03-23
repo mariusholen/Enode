@@ -18,8 +18,8 @@
     <PackageReference Include="Moq" Version="4.13.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Brukerfeil.Enode.Common\Brukerfeil.Enode.Common.csproj" />
     <ProjectReference Include="..\Brukerfeil.Enode.API\Brukerfeil.Enode.API.csproj" />
+    <ProjectReference Include="..\Brukerfeil.Enode.Common\Brukerfeil.Enode.Common.csproj" />
     <ProjectReference Include="..\Brukerfeil.Enode.Repositories\Brukerfeil.Enode.Repositories.csproj" />
     <ProjectReference Include="..\Brukerfeil.Enode.Services\Brukerfeil.Enode.Services.csproj" />
   </ItemGroup>
